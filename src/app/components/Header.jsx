@@ -57,8 +57,7 @@ export default function Header() {
         </span>
       </Link>
 
-      <form onSubmit={handleSubmit}>
-      
+      <form>
           <TextInput
             type='text'
             placeholder='Search...'

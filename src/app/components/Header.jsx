@@ -20,7 +20,11 @@ export default function Header() {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const searchParams = useSearchParams();
+  const searchParams = (
+    <Suspense fallback={null}>
+      {useSearchParams()}
+    </Suspense>
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +54,6 @@ export default function Header() {
       </Link>
 
       <form onSubmit={handleSubmit}>
-        <Suspense fallback={null}>
           <TextInput
             type='text'
             placeholder='Search...'
@@ -59,7 +62,6 @@ export default function Header() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-        </Suspense>
       </form>
 
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>

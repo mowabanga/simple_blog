@@ -20,31 +20,31 @@ export default function Header() {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const searchParams = (
-    <Suspense fallback={null}>
-      {useSearchParams()}
-    </Suspense>
-  );
+  // const searchParams = (
+  //   <Suspense fallback={null}>
+  //     {useSearchParams()}
+  //   </Suspense>
+  // );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const urlParams = new URLSearchParams(searchParams);
-    urlParams.set('searchTerm', searchTerm);
-    const searchQuery = urlParams.toString();
-    router.push(`/search?${searchQuery}`);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const urlParams = new URLSearchParams(searchParams);
+  //   urlParams.set('searchTerm', searchTerm);
+  //   const searchQuery = urlParams.toString();
+  //   router.push(`/search?${searchQuery}`);
+  // };
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(
-      <Suspense fallback={null}>
-        {useSearchParams()}
-      </Suspense>
-    );
-    const searchTermFromUrl = urlParams.get('searchTerm');
-    if (searchTermFromUrl) {
-      setSearchTerm(searchTermFromUrl);
-    }
-  }, [searchParams]);
+  // useEffect(() => {
+  //   const urlParams = new URLSearchParams(
+  //     <Suspense fallback={null}>
+  //       {useSearchParams()}
+  //     </Suspense>
+  //   );
+  //   const searchTermFromUrl = urlParams.get('searchTerm');
+  //   if (searchTermFromUrl) {
+  //     setSearchTerm(searchTermFromUrl);
+  //   }
+  // }, [searchParams]);
 
   return (
     <Navbar className='border-b-2 font-black'>
@@ -58,13 +58,14 @@ export default function Header() {
       </Link>
 
       <form onSubmit={handleSubmit}>
+      
           <TextInput
             type='text'
             placeholder='Search...'
             rightIcon={AiOutlineSearch}
             className='hidden lg:inline'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            // value={searchTerm}
+            // onChange={(e) => setSearchTerm(e.target.value)}
           />
       </form>
 

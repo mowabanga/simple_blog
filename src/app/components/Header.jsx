@@ -73,6 +73,7 @@ export default function Header() {
         >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
+
         <SignedIn>
           <UserButton
             appearance={{
@@ -81,6 +82,7 @@ export default function Header() {
             userProfileUrl='/dashboard?tab=profile'
           />
         </SignedIn>
+
         <SignedOut>
           <Link href='/sign-in'>
             <Button gradientDuoTone='purpleToBlue' outline>
@@ -88,6 +90,7 @@ export default function Header() {
             </Button>
           </Link>
         </SignedOut>
+        
         <Navbar.Toggle />
       </div>
 
